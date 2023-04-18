@@ -10,6 +10,12 @@ public class TestEmpStream {
 
 	List<Employee> list=new ArrayList<Employee>();
 	
+	public List<String> genderType()
+	{
+		List<String> Gender=list.stream().map(x->x.getGender()).distinct().collect(Collectors.toList());
+		return Gender;
+	}
+	
 	public void countofgenders()
 	{
 		System.out.println("Count of Male and Female Employees in the Organizarion ");
@@ -115,6 +121,64 @@ public class TestEmpStream {
 		}
 	}
 	
+	public void avgSalaryGenderwise()
+	{
+		System.out.println("Average Salary of Employees Gender Wise in the Organization");
+		List<String> gender=genderType();
+		for(String s:gender)
+		{
+			Double Average=list.stream().filter(e->(e.getGender()).equals(s)).mapToLong(x->x.getSalary()).average().orElseThrow();
+			System.out.println(s+"Average Salary : "+Average);
+		}
+	}
+	
+	public void nameEachDept()
+	{
+		System.out.println("Name of Employees Department wise in the Organization");
+		List<String> dept=printAllDept();
+		for(String s:dept)
+		{
+			System.out.println("\n"+s+":");
+			list.stream().filter(emp->(emp.getDepartment()).equals(s)).forEach(e->System.out.println(e.getName()));
+		}
+	}
+	
+	public void avgTotalSalrayOrg()
+	{
+		System.out.println("Total Salary and Average Salary of the Organization");
+		long Total=list.stream().mapToLong(x->x.getSalary()).sum();
+		Double Average=list.stream().mapToDouble(x->x.getSalary()).average().orElseThrow();
+		System.out.println("Total Salary : "+Total+"\nAverage Salary : "+Average);
+	}
+	public void separateEmployeebyAge()
+	{
+		System.out.println("Separating Employee By Age in the Organization");
+		List<Employee> JuniorEmp=list.stream().filter(e->(e.getAge())<=25).collect(Collectors.toList());
+		List<Employee> SeniorEmp=list.stream().filter(e->(e.getAge())>25).collect(Collectors.toList());
+		System.out.println("Empolyees are younger or equal to 25");
+		for(Employee e:JuniorEmp) {
+			System.out.println(e.getName());
+			//System.out.println("Name : "+e.getName()+"\nAge : "+e.getAge()+"\nSalary : "+e.getSalary()+"\nDepartment : "
+				//	+e.getDepartment()+"\nGender : "+e.getGender()+"\nYear of Joining : "+e.getYearOfJoining()));
+		}
+		System.out.println("Empolyees are older than 25");
+		for(Employee e:SeniorEmp) {
+			//System.out.println("Name : "+e.getName()+"\nAge : "+e.getAge()+"\nSalary : "+e.getSalary()+"\nDepartment : "
+				//	+e.getDepartment()+"\nGender : "+e.getGender()+"\nYear of Joining : "+e.getYearOfJoining()));
+			System.out.println(e.getName());
+		}
+	}
+	
+	public void oldestEmployee()
+	{
+		System.out.println("Oldest Employee in the Organization");
+		Long max=list.stream().mapToLong(e->e.getAge()).max().orElseThrow();
+		List<Employee> emp=list.stream().filter(x->(x.getAge()) == max).collect(Collectors.toList());
+		for(Employee e:emp) {
+			System.out.println("Name : "+e.getName()+"\nAge : "+e.getAge()+"\nSalary : "+e.getSalary()+"\nDepartment : "
+						+e.getDepartment()+"\nGender : "+e.getGender()+"\nYear of Joining : "+e.getYearOfJoining());
+		}
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -150,7 +214,16 @@ public class TestEmpStream {
 		s.mostWorkingExpEmp();
 		System.out.print("\n\n");
 		s.countsalesmarketGenderwise();
-		
+		System.out.print("\n\n");
+		s.avgSalaryGenderwise();
+		System.out.print("\n\n");
+		s.nameEachDept();
+		System.out.print("\n\n");
+		s.avgTotalSalrayOrg();
+		System.out.print("\n\n");
+		s.separateEmployeebyAge();
+		System.out.print("\n\n");
+		s.oldestEmployee();
 	}
 
 }
