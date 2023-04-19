@@ -1,6 +1,6 @@
 package com.example.SpringBootAutowired.Model;
 
-import org.springframework.context.annotation.Primary;
+
 import org.springframework.stereotype.Component;
 
 @Component

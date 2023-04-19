@@ -2,5 +2,5 @@ package com.example.SpringBootAutowired.Model;
 
 public interface Company {
 
-	public void name();
+	public String name();
 }

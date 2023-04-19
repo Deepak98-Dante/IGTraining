@@ -16,7 +16,7 @@ public class Testpolymorphism {
 		md.add(10, 20);
 		md.count();
 		
-		//Override method call if havw parent reference
+		//Override method call if have parent reference
 		MethodOverloading mo1=new MethodOverride();
 		md.add(22, 24);
 		md.add(44, 55, 11);

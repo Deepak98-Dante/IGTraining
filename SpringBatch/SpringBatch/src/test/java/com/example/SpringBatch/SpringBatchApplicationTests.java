@@ -1,16 +1,13 @@
-package com.example.SpringBootAutowired;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
+package com.example.SpringBatch;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBootAutowiredApplicationTests {
+class SpringBatchApplicationTests {
 
 	@Test
 	void contextLoads() {
-		
 	}
 
 }

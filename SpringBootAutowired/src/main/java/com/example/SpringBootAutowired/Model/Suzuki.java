@@ -6,8 +6,9 @@ import org.springframework.stereotype.Component;
 public class Suzuki implements Company {
 
 	@Override
-	public void name() {
+	public String name() {
 		System.out.println("Maruti Suzuki");
+		return "Maruti Suzuki";
 		
 	}
 

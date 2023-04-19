@@ -8,9 +8,9 @@ import com.example.SpringBootAutowired.Model.Budget;
 import com.example.SpringBootAutowired.Model.BudgetQualifier;
 import com.example.SpringBootAutowired.Model.Car;
 import com.example.SpringBootAutowired.Model.Company;
-import com.example.SpringBootAutowired.Model.EVCar;
+
 import com.example.SpringBootAutowired.Model.Engine;
-import com.example.SpringBootAutowired.Model.SedanCar;
+
 
 @Controller
 public class CarController {
