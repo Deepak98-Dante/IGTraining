@@ -67,7 +67,7 @@ public class ProductdataApplicationTests {
 	 
 	
 	@Test
-	@Order(5)
+	@Order(4)
 	public void testDelete()
 	{
 		pRepo.deleteById(1L);
