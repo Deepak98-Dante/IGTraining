@@ -1,0 +1,5 @@
+﻿bookId,bookName,author,price,bookPages,noOfCopies,bookPublications,createdby
+101,arts,a,100,120,100,aaaa,
+102,management,v,200,200,50,bbbb,
+103,sports,b,300,150,120,cccc,
+104,culture,c,400,160,80,dddd,
